@@ -13,4 +13,6 @@ if (!function_exists('loadEnv')) {
     }
 }
 
-loadEnv(__DIR__ . '/.env');
+if (!isset($_ENV['RAILWAY_ENVIRONMENT'])) {
+    loadEnv(__DIR__ . '/.env');
+}
