@@ -11,10 +11,10 @@
             background-color: #f4f4f4;
         }
         h1 {
-            color: #333;
+            color: #222;
         }
         h2 {
-            color: #555;
+            color: #222;
         }
         p {
             font-size: 16px;
@@ -42,6 +42,25 @@ echo "<br>ยอดขายรวม: " . $totalSales . "<br>";
 echo "ยอดขายเฉลี่ย: " . $totalSales / count($sales);
 
 // 2.  สร้างตัวแปรที่มีคีย์แบบสัมพันธ์ เพื่อเก็บข้อมูลสกุลเงินตราและอัตราแลกเปลี่ยนประจำวันของแต่ละประเทศ อย่างน้อย 10 ประเทศ แล้วแสดงผลโดยใช้โครงสร้างการทำงานซ้ำ
+
+echo "<h2>อัตราแลกเปลี่ยนสกุลเงิน</h2>";
+
+$coins = array(
+    "American Dollar" => 36.50,
+    "Euro" => 40.00,
+    "Pound Sterling" => 45.00,
+    "Japanese Yen" => 0.33,
+    "Chinese Yuan" => 5.60,
+    "Thai Baht" => 1.00,
+    "Indian Rupee" => 0.44,
+    "Canadian Dollar" => 28.00,
+    "Australian Dollar" => 24.00,
+    "British Pound" => 32.00
+);
+
+foreach ($coins as $country => $rate) {
+    echo "ประเทศ ".$country." มีอัตราแลกเปลี่ยนประจำวัน ".$rate."<br>";
+}
 
 
 // 3. สร้างอาร์เรย์ชนิดหลายมิติเพื่อเก็บข้อมูลพนักงาน 5 คน โดยมีข้อมูลประกอบด้วย
