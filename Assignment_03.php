@@ -80,9 +80,9 @@ $employee = array(
 );
 
 foreach ($employee as $country => $rate) {
-    $totalMonthlySalary += $rate[4]; // คำนวณเงินเดือนรวม
-    $tax = $rate[4] * 0.03; // คำนวณภาษีที่ถูกหัก
-    $netSalary = $rate[4] - $tax; // คำนวณเงินเดือนคงเหลือ
+    $totalMonthlySalary += $rate[4];
+    $tax = $rate[4] * 0.03;
+    $netSalary = $rate[4] - $tax;
     echo "รหัสพนักงาน: ".$rate[0].", ชื่อ: ".$rate[1].", นามสกุล: ".$rate[2].", แผนก: ".$rate[3]." เงินเดือน: ".$rate[4]." บาท, ภาษีที่ถูกหัก: ".$tax." บาท, เงินเดือนคงเหลือ: ".$netSalary." บาท<br>";
 }
 echo "เงินเดือนรวม: ".$totalMonthlySalary." บาท<br>";
