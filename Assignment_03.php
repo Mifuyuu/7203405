@@ -68,6 +68,7 @@ foreach ($coins as $country => $rate) {
 // สมมติว่า บริษัทหักภาษี ณ ที่จ่ายพนักงานทุกคน 3 % ให้คำนวณ และแสดงภาษีที่ถูกหัก พร้อมเงินเดือนคงเหลือ
 
 $totalMonthlySalary = 0;
+
 echo "<h2>ข้อมูลพนักงาน</h2>";
 
 $employee = array(
@@ -78,13 +79,11 @@ $employee = array(
     array("E005", "สมปอง", "สบายดี", "ผู้บริหาร", 50000)
 );
 
-foreach ($employee as $country => $rate) {
-    $totalMonthlySalary += $rate[4];
-    $tax = $rate[4] * 0.03;
-    $netSalary = $rate[4] - $tax;
-    echo "รหัสพนักงาน: ".$rate[0].", ชื่อ: ".$rate[1].", นามสกุล: ".$rate[2].", แผนก: ".$rate[3]." เงินเดือน: ".$rate[4]." บาท, ภาษีที่ถูกหัก: ".$tax." บาท, เงินเดือนคงเหลือ: ".$netSalary." บาท<br>";
+for ($j=0; $j < count($employee); $j++) { 
+    echo "<b>รหัสพนักงาน:</b> ".$employee[$j][0]." <b>ชื่อ:</b> ".$employee[$j][1]." <b>นามสกุล:</b> ".$employee[$j][2]." <b>แผนก:</b> ".$employee[$j][3]." <b>เงินเดือน:</b> ".$employee[$j][4]." บาท <b>ภาษีที่ถูกหัก:</b> ".($employee[$j][4] * 0.03)." บาท <b>เงินเดือนคงเหลือ:</b> ".($employee[$j][4] - ($employee[$j][4] * 0.03))." บาท<br>";
+    $totalMonthlySalary += $employee[$j][4];
 }
-echo "เงินเดือนรวม: ".$totalMonthlySalary." บาท<br>";
+echo "<br>เงินเดือนรวม: ".$totalMonthlySalary." บาท<br>";
 echo "เงินเดือนเฉลี่ย: ".($totalMonthlySalary / count($employee))." บาท<br>";
 ?>    
 </body>
