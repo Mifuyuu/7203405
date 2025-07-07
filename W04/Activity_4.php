@@ -28,7 +28,7 @@ $bgColor = isset($_GET['colors']) ? $_GET['colors'] : '#ffffff';
         <fieldset>
             <legend>ระบบคำนวณเกรด</legend>
             <label>ชื่อ</label>
-            <input type="text" name="uname">
+            <input type="text" name="uname" required>
 
             <label>สาขาวิชา</label>
             <select name="major">
@@ -47,11 +47,10 @@ $bgColor = isset($_GET['colors']) ? $_GET['colors'] : '#ffffff';
             <?php
 
             // 1. ให้นักศึกษาสร้างฟอร์มเพื่อรับคะแนนสอบ แล้วนำมาคำนวณหาเกรด และแสดงผลคะแนน และเกรดที่ได้
-
-            $uname = $_GET['uname'];
-            $major = $_GET['major'];
-            $c_point = $_GET['c_point'];
-            $t_point = $_GET['t_point'];
+            $uname = $_GET['uname'] ?? 'N/A';
+            $major = $_GET['major'] ?? 'N/A';
+            $c_point = $_GET['c_point'] ?? 0;
+            $t_point = $_GET['t_point'] ?? 0;
 
             $total_point = $c_point + $t_point;
 
@@ -101,7 +100,7 @@ $bgColor = isset($_GET['colors']) ? $_GET['colors'] : '#ffffff';
             </select>
             <input type="submit" value="เลือก">
             <?php
-            $birth = $_GET['select_year'];
+            $birth = $_GET['select_year'] ?? '';
             echo "คุณเกิดในปี ", $birth;
             ?>
         </fieldset>
@@ -114,7 +113,7 @@ $bgColor = isset($_GET['colors']) ? $_GET['colors'] : '#ffffff';
         return $cool;
     }
     function Celsius($a) {
-        $cool=($a/1.8)-32;
+        $cool = ($a - 32) / 1.8;
         return $cool;
     }
     ?>
@@ -122,11 +121,11 @@ $bgColor = isset($_GET['colors']) ? $_GET['colors'] : '#ffffff';
         <fieldset>
             <legend>แปลงองศา</legend>
             <label>ใส่องศาเซลเซียส</label>
-            <input type="text" name="cell">
+            <input type="text" name="cell" required>
             <input type="submit" value="แปลงองศา">
 
             <?php
-            $cell = $_POST['cell'];
+            $cell = $_POST['cell'] ?? 0;
             echo "<br>$cell องศาเซลเซียล เท่ากับ ",Fahrenheit($cell)," องศาฟาเรนไฮต์";
             ?>
         </fieldset>
@@ -135,7 +134,7 @@ $bgColor = isset($_GET['colors']) ? $_GET['colors'] : '#ffffff';
         <fieldset>
             <legend>แปลงองศาแบบตัวเลือก</legend>
             <label>องศา</label>
-            <input type="number" name="Degree">
+            <input type="number" name="Degree" required>
             <label>แปลงเป็น</label>
             <select name="convert">
                 <option value="Celsius">เซลเซียล</option>
@@ -143,8 +142,8 @@ $bgColor = isset($_GET['colors']) ? $_GET['colors'] : '#ffffff';
             </select>
             <input type="submit" value="แปลงค่า">
             <?php
-            $degree = $_POST['Degree'];
-            $type = $_POST['convert'];
+            $degree = $_POST['Degree'] ?? 0;
+            $type = $_POST['convert'] ?? 'Celsius';
             if ($type=="Celsius") echo "<br>เท่ากับ ",Celsius($degree)," องศาเซลเซียล";
             elseif ($type=="Fahrenheit") echo "<br>เท่ากับ ",Fahrenheit($degree)," องศาฟาเรนไฮน์";
             ?>
