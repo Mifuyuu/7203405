@@ -4,7 +4,7 @@
 
 <?php
 
-abstract class Employee { //1. สร้าง abstract class Employee
+abstract class Employee_A7 { //1. สร้าง abstract class Employee
 
     protected $first_name; //1.1 มี property เป็นแบบที่สามารถเรียกใช้ได้ในคลาสที่สืบทอด คือ ชื่อ นามสกุล 
     protected $last_name;
@@ -24,7 +24,7 @@ abstract class Employee { //1. สร้าง abstract class Employee
 
 }
 
-class Permanent_Employee extends Employee { //2. สร้างคลาส พนักงานประจำ ที่สืบทอดมาจากคลาส Employee ในข้อ 1
+class Permanent_Employee extends Employee_A7 { //2. สร้างคลาส พนักงานประจำ ที่สืบทอดมาจากคลาส Employee ในข้อ 1
 
     private $salary; //2.1 เพิ่ม property เป็นแบบที่ไม่สามารถเรียกใช้ได้จากภายนอกคลาส คือ salary เงินเดือน
 
@@ -51,7 +51,7 @@ $person_1->cal_payment();
 
 echo "<hr>";
 
-class Daily_Employee extends Employee { // 3. สร้างคลาส พนักงานรายวัน ที่สืบทอดมาจากคลาส Employee ในข้อ 1
+class Daily_Employee extends Employee_A7 { // 3. สร้างคลาส พนักงานรายวัน ที่สืบทอดมาจากคลาส Employee ในข้อ 1
     
     private $wage; // 3.1 เพิ่ม property เป็นแบบที่ไม่สามารถเรียกใช้ได้จากภายนอกคลาส คือ wage ค่าจ้างรายวัน และ days จำนวนวันที่ทำงาน
     private $days;
